@@ -1,0 +1,6 @@
+<div *ngIf="language">
+  <h3>{{language.name}}</h3>
+  <img class="logo" [class.big]="isBig" (mouseenter)="isBig = true" (mouseleave)="isBig = false" [src]="language.logo" alt="{{language.name}} logo">
+  <p>Rating: {{language.rating | rating}}</p>
+</div>
+<button (click)="goBack()">Back</button>
