@@ -11,13 +11,15 @@ import { LanguageService } from './languages/shared/language.service';
 import { AppRoutingModule } from './app-routing.module';
 import { LanguageDetailsComponent } from './languages/language-details.component';
 import { RatingPipe } from './languages/shared/rating.pipe';
+import { LanguageComponent } from './languages/language.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LanguageListComponent,
     LanguageDetailsComponent,
-    RatingPipe
+    RatingPipe,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,

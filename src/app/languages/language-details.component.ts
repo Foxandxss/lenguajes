@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Language, LanguageService } from './shared/language.service';
 
@@ -14,18 +14,13 @@ export class LanguageDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private languageService: LanguageService,
-    private router: Router
+    private languageService: LanguageService
   ) {
     this.langId = activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
     this.languageService.getLanguage(this.langId).subscribe(lang => this.language = lang);
-  }
-
-  goBack() {
-    this.router.navigate(['languages']);
   }
 
 }
