@@ -1,6 +1,5 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from "@angular/router/testing";
 import { By } from '@angular/platform-browser';
 
 import { LanguageListComponent } from './language-list.component';
@@ -13,10 +12,10 @@ describe('LanguageListComponent', () => {
   let service: LanguageService;
   let routerLinkDes: DebugElement[];
   let routerLinks: RouterLinkStubDirective[];
+  let logos: DebugElement[];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule ],
       providers: [{ provide: LanguageService, useClass: LanguageStubService }],
       declarations: [ LanguageListComponent, RouterLinkStubDirective ]
     });
@@ -27,6 +26,7 @@ describe('LanguageListComponent', () => {
     fixture.detectChanges();
     routerLinkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));
     routerLinks = routerLinkDes.map(de => de.injector.get(RouterLinkStubDirective));
+    logos = fixture.debugElement.queryAll(By.css('img'));
   });
 
   it('fetches all languages', () => {
@@ -36,26 +36,24 @@ describe('LanguageListComponent', () => {
     expect(service.getLanguages).toHaveBeenCalled();
   });
 
-  it ('fetches all languages / alternative', () => {
-    let component = new LanguageListComponent(new LanguageStubService() as LanguageService);
-    component.ngOnInit();
-    expect(component.languages.length).toBe(5);
-  });
-
   it('has a header', () => {
     const header = fixture.debugElement.query(By.css('h2')).nativeElement;
     expect(header.textContent).toBe('Language list');
   });
 
   it('renders as many logos as languages are', () => {
-    const logos = fixture.debugElement.queryAll(By.css('img'));
     expect(logos.length).toBe(5);
   });
 
   it('shows the logo as src', () => {
-    const logos = fixture.debugElement.queryAll(By.css('img'));
     logos.map((logo, idx) => {
       expect(logo.nativeElement.src).toContain(component.languages[idx].logo);
+    });
+  });
+
+  it('has an alt tag with the language name', () => {
+    logos.map((logo, idx) => {
+      expect(logo.nativeElement.alt).toBe(`${component.languages[idx].name} logo`);
     });
   });
 
@@ -63,14 +61,5 @@ describe('LanguageListComponent', () => {
     routerLinks.map((link, idx) => {
       expect(link.linkParams).toBe(component.languages[idx].id);
     });
-  });
-
-  it('sends you to another page on click', () => {
-    const firstLink = routerLinks[0];
-    const firstLinkDe = routerLinkDes[0];
-
-    expect(firstLink.navigatedTo).toBeNull('link should not have navigated yet');
-    firstLinkDe.nativeElement.click();
-    expect(firstLink.navigatedTo).toBe(0);
   });
 });

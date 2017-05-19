@@ -11,7 +11,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { LanguageService } from './language.service';
 
-fdescribe('UserService', () => {
+describe('UserService', () => {
   let languageService: LanguageService;
 
   beforeEach(() => {
@@ -35,9 +35,9 @@ fdescribe('UserService', () => {
 
     let fakeLanguages = {
       data: [
-        { id: 0, name: 'Javascript', logo: 'javascript.png', rating: 2 },
-        { id: 1, name: 'Ruby', logo: 'ruby.png', rating: 1 },
-        { id: 2, name: 'Basic', logo: 'basic.png', rating: 0 },
+        { id: 0, name: 'Javascript', logo: 'javascript.png', rating: 3 },
+        { id: 1, name: 'Ruby', logo: 'ruby.png', rating: 2 },
+        { id: 2, name: 'Basic', logo: 'basic.png', rating: 1 },
       ]
     }
 
