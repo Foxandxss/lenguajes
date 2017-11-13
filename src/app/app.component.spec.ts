@@ -10,7 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
+    });
   });
 
   it(`should have as title 'app works!'`, () => {

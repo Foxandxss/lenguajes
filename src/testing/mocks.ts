@@ -58,10 +58,7 @@ export class RouterStub {
 }
 
 @Directive({
-  selector: '[routerLink]',
-  host: {
-    '(click)': 'onClick()'
-  }
+  selector: '[routerLink]'
 })
 export class RouterLinkStubDirective {
   @Input('routerLink') linkParams: any;
