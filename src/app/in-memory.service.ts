@@ -1,5 +1,9 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+/**
+ * A list of mock languages to be used with
+ * angular-in-memory-web-api
+ */
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let languages = [

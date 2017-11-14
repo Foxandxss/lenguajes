@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Main component with the router-outlet
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

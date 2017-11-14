@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 
 import { Language } from './shared/language.service';
 
+/**
+ * Shows the details of a concrete language
+ */
 @Component({
   selector: 'app-language',
   templateUrl: './language.component.html',

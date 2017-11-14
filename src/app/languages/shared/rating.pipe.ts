@@ -5,6 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RatingPipe implements PipeTransform {
 
+  /**
+   * Transform a numeric rating into text
+   * @param value the rating to transform
+   */
   transform(value: number): string {
     switch(value) {
       case 1:

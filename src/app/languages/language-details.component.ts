@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Language, LanguageService } from './shared/language.service';
 
+/**
+ * Fetches the current language and uses it in a concrete
+ * details component.
+ */
 @Component({
   selector: 'osc-language-details',
   templateUrl: './language-details.component.html',
@@ -10,6 +14,9 @@ import { Language, LanguageService } from './shared/language.service';
 })
 export class LanguageDetailsComponent implements OnInit {
   language: Language;
+  /**
+   * Language ID to show
+   */
   langId: number;
 
   constructor(

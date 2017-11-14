@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Language, LanguageService } from './shared/language.service';
 
+/**
+ * Shows the list of all languages
+ */
 @Component({
   selector: 'osc-language-list',
   templateUrl: './language-list.component.html',
