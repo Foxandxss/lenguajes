@@ -14,10 +14,12 @@ import { Language } from './shared/language.service';
 export class LanguageComponent {
   @Input() language: Language;
   isBig = false;
-  foo: Language = { id: 0, name: 'foo', logo: 'foo', rating: 1 };
 
   constructor(private router: Router) { }
 
+  /**
+   * Routes back to the languages component
+   */
   goBack() {
     this.router.navigate(['languages']);
   }

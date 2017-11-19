@@ -22,7 +22,6 @@ export class LanguageService {
 
   /**
    * Get all languages
-   * @returns
    */
   getLanguages() {
     return this.http.get<Language[]>('/api/languages');
